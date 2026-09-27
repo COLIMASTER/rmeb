@@ -127,7 +127,7 @@ export function App() {
     <Header />
 
     <section className="hero" id="inicio">
-      <div className="hero-media" aria-hidden="true"><img src="/assets/rafael-playa.jpg" alt="" /></div>
+      <picture className="hero-media" aria-hidden="true"><source media="(min-width: 721px)" srcSet="/assets/rafael-hero-desktop.png"/><img src="/assets/rafael-playa.jpg" alt="" /></picture>
       <div className="hero-shade" aria-hidden="true" />
       <div className="hero-copy">
         <p className="overline hero-overline">Preparación física · Salud · Readaptación</p>

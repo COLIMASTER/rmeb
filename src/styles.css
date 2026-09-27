@@ -40,8 +40,8 @@ svg { display: block; }
 .menu-toggle { display: none; }
 
 .hero { position: relative; height: max(780px, 100svh); min-height: 680px; overflow: hidden; background: var(--night); isolation: isolate; }
-.hero-media { position: absolute; inset: 76px 0 0 43%; z-index: -3; overflow: hidden; background: linear-gradient(90deg, #172b37 0%, #264354 62%, #8aa8bc 100%); }
-.hero-media img { height: 100%; object-fit: contain; object-position: right bottom; filter: saturate(.88) contrast(1.02); animation: hero-enter 1.5s cubic-bezier(.2,.75,.2,1) both; }
+.hero-media { position: absolute; inset: 76px 0 0 43%; z-index: -3; overflow: hidden; background: #223846; }
+.hero-media img { height: 100%; object-fit: cover; object-position: right center; filter: saturate(.88) contrast(1.02); animation: hero-enter 1.5s cubic-bezier(.2,.75,.2,1) both; }
 .hero-shade { position: absolute; z-index: -2; inset: 0; background: linear-gradient(90deg, #071119 0%, #071119 31%, rgba(7,17,25,.93) 41%, rgba(7,17,25,.38) 58%, rgba(7,17,25,.04) 78%), linear-gradient(0deg, rgba(5,13,19,.62), transparent 30%); }
 .hero::before { content: ''; position: absolute; z-index: -1; inset: 76px 4vw 5.5vw; border: 1px solid rgba(255,255,255,.1); pointer-events: none; }
 .hero-copy { position: absolute; left: clamp(28px, 6.5vw, 105px); top: 50%; width: min(625px, 52vw); transform: translateY(-45%); }
