@@ -94,15 +94,33 @@ svg { display: block; }
 .profile-facts strong { color: var(--copper); font-family: var(--serif); font-size: 30px; font-weight: 400; }
 .profile-facts span { max-width: 90px; font-size: 8px; line-height: 1.45; letter-spacing: .09em; text-transform: uppercase; }
 
+.personal-training { display: grid; grid-template-columns: .9fr 1.1fr; column-gap: clamp(55px, 8vw, 140px); row-gap: 95px; padding: 135px clamp(28px, 7vw, 115px) 120px; background: var(--paper-soft); color: var(--ink); }
+.training-heading h2 { max-width: 690px; margin: 0; font-family: var(--serif); font-size: clamp(62px, 6.3vw, 102px); font-weight: 400; line-height: .86; letter-spacing: -.05em; }
+.training-heading h2 em { color: var(--copper); font-weight: 400; }
+.training-content { max-width: 650px; padding-top: 47px; }
+.training-lead { margin: 0 0 27px; font-family: var(--serif); font-size: clamp(28px, 2.7vw, 42px); line-height: 1.05; letter-spacing: -.025em; }
+.training-copy { max-width: 550px; margin: 0; color: #555a5c; font-size: 15px; line-height: 1.75; }
+.training-goals { margin-top: 45px; border-top: 1px solid var(--line-dark); }
+.training-goals > div { display: grid; grid-template-columns: 45px 1fr; gap: 18px; align-items: center; padding: 17px 0; border-bottom: 1px solid var(--line-dark); }
+.training-goals span, .training-process > div > span { color: var(--copper); font-size: 9px; letter-spacing: .16em; }
+.training-goals strong { font-size: 13px; font-weight: 500; line-height: 1.45; }
+.training-button { margin-top: 34px; opacity: 1; animation: none; }
+.training-process { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-dark); }
+.training-process > div { min-height: 132px; display: grid; grid-template-columns: 46px 1fr; gap: 20px; padding: 29px 32px; border-right: 1px solid var(--line-dark); }
+.training-process > div:last-child { border-right: 0; }
+.training-process p { display: flex; flex-direction: column; gap: 9px; margin: 0; color: #626565; font-size: 12px; line-height: 1.55; }
+.training-process strong { color: var(--ink); font-family: var(--serif); font-size: 25px; font-weight: 400; line-height: 1; }
+
 .practice { padding: 150px clamp(28px, 7vw, 115px) 170px; background: var(--night); }
 .practice-head { display: grid; grid-template-columns: 1.6fr 1fr; align-items: end; margin-bottom: 100px; }
 .practice-head .reveal:first-child { grid-column: 1 / -1; }
 .practice-head > .reveal:last-child { justify-self: end; max-width: 360px; color: rgba(255,255,255,.58); font-size: 15px; line-height: 1.7; }
 .practice-stories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; perspective: 1400px; }
 .flip-card { min-width: 0; height: clamp(400px, 36vw, 500px); perspective: 1400px; }
-.flip-card-inner { position: relative; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; color: #fff; text-align: left; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2,.72,.15,1); cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; color: #fff; text-align: left; -webkit-appearance: none; appearance: none; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2,.72,.15,1); will-change: transform; touch-action: manipulation; cursor: pointer; }
 .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
-.flip-face { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line-light); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-face { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line-light); backface-visibility: hidden; -webkit-backface-visibility: hidden; pointer-events: none; }
+.flip-front { transform: rotateY(0deg) translateZ(1px); }
 .flip-front img { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: center; filter: saturate(.75) contrast(1.05); transition: transform .8s ease, filter .8s ease; }
 .flip-card:nth-child(3) .flip-front img { object-position: 54% 16%; }
 .flip-card:hover .flip-front img { transform: scale(1.035); filter: saturate(.95) contrast(1.03); }
@@ -112,15 +130,15 @@ svg { display: block; }
 .flip-front-copy small, .flip-back small { margin-bottom: 13px; color: var(--copper-light); font-size: 9px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
 .flip-front-copy strong, .flip-back strong { max-width: 320px; font-family: var(--serif); font-size: clamp(36px, 3.4vw, 52px); font-weight: 400; line-height: .9; letter-spacing: -.035em; }
 .flip-front-copy i { display: flex; justify-content: space-between; margin-top: 31px; padding-top: 13px; border-top: 1px solid rgba(255,255,255,.38); font-size: 8px; font-style: normal; letter-spacing: .16em; text-transform: uppercase; }
-.flip-front-copy i b { color: var(--copper-light); font-size: 14px; font-weight: 400; }
-.flip-back { justify-content: flex-end; padding: clamp(30px, 3.5vw, 48px); background: var(--copper); transform: rotateY(180deg); }
+.flip-front-copy i svg { width: 15px; color: var(--copper-light); fill: none; stroke: currentColor; stroke-width: 1.4; }
+.flip-back { justify-content: flex-end; padding: clamp(30px, 3.5vw, 48px); background: var(--copper); transform: rotateY(180deg) translateZ(1px); }
 .flip-card:nth-child(2) .flip-back { background: #28404e; }
 .flip-card:nth-child(3) .flip-back { background: #d9d0c4; color: var(--ink); }
 .flip-back .flip-number { color: currentColor; opacity: .55; }
 .flip-back small { color: currentColor; opacity: .68; }
 .flip-text { margin-top: 28px; font-size: 13px; line-height: 1.7; opacity: .75; }
 .flip-link { display: flex; justify-content: space-between; margin-top: 38px; padding-top: 14px; border-top: 1px solid currentColor; font-size: 8px; letter-spacing: .15em; text-transform: uppercase; }
-.flip-link b { font-size: 15px; font-weight: 400; }
+.flip-link svg { width: 15px; fill: none; stroke: currentColor; stroke-width: 1.4; }
 
 .method { position: relative; padding: 160px clamp(28px, 8vw, 130px) 140px; background: var(--paper); color: var(--ink); overflow: hidden; }
 .method-line { position: absolute; top: 0; left: 50%; width: 1px; height: 100%; background: var(--line-dark); }
@@ -167,6 +185,8 @@ svg { display: block; }
 .phone { padding-bottom: 7px; border-bottom: 1px solid currentColor; font-family: var(--serif); font-size: 24px; }
 .footer-bottom { position: relative; z-index: 2; min-height: 92px; display: grid; grid-template-columns: 1fr 1.3fr 1.3fr auto; gap: 30px; align-items: center; padding: 22px clamp(22px, 4vw, 66px); border-top: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.68); }
 .footer-bottom p, .footer-bottom > a:last-child { margin: 0; font-size: 8px; line-height: 1.5; letter-spacing: .14em; text-transform: uppercase; }
+.footer-up { display: flex; align-items: center; gap: 8px; }
+.footer-up svg { width: 14px; fill: none; stroke: currentColor; transform: rotate(-90deg); }
 .footer-brand { color: #fff; font-size: 24px; }
 .mobile-whatsapp { display: none; }
 
@@ -181,6 +201,8 @@ svg { display: block; }
   .profile-title { grid-column: 1 / -1; padding: 0; }
   .profile-photo { min-height: 600px; }
   .profile-copy { padding: 30px 0; }
+  .personal-training { grid-template-columns: 1fr; row-gap: 55px; }
+  .training-content { max-width: 760px; padding-top: 0; }
   .practice-head { grid-template-columns: 1fr; }
   .practice-head > .reveal:last-child { justify-self: start; margin-top: 35px; }
   .practice-stories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -227,6 +249,18 @@ svg { display: block; }
   .profile-facts { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 40px; }
   .profile-facts strong { font-size: 26px; }
   .profile-facts span { font-size: 7px; }
+  .personal-training { display: block; padding: 76px 24px 74px; }
+  .training-heading h2 { font-size: clamp(55px, 15.5vw, 70px); }
+  .training-content { padding-top: 38px; }
+  .training-lead { margin-bottom: 21px; font-size: 31px; }
+  .training-copy { font-size: 14px; }
+  .training-goals { margin-top: 34px; }
+  .training-goals > div { grid-template-columns: 33px 1fr; gap: 12px; padding: 15px 0; }
+  .training-button { width: 100%; justify-content: center; margin-top: 28px; }
+  .training-process { grid-template-columns: 1fr; margin-top: 48px; }
+  .training-process > div { min-height: 0; grid-template-columns: 34px 1fr; gap: 12px; padding: 23px 20px; border-right: 0; border-bottom: 1px solid var(--line-dark); }
+  .training-process > div:last-child { border-bottom: 0; }
+  .training-process strong { font-size: 24px; }
   .practice { padding: 78px 16px 84px; }
   .practice-head { padding: 0 9px; margin-bottom: 44px; }
   .practice-head > .reveal:last-child { margin-top: 25px; font-size: 14px; }
@@ -265,8 +299,9 @@ svg { display: block; }
   .footer-bottom { min-height: 88px; grid-template-columns: 1fr auto; gap: 16px; padding: 20px 24px 92px; }
   .footer-bottom p { display: none; }
   .footer-bottom > a:last-child { justify-self: end; }
-  .mobile-whatsapp { position: fixed; z-index: 45; right: 14px; bottom: 14px; display: flex; align-items: center; gap: 9px; padding: 12px 16px; border: 1px solid rgba(255,255,255,.2); border-radius: 40px; background: rgba(7,17,25,.9); color: #fff; backdrop-filter: blur(12px); box-shadow: 0 12px 35px rgba(0,0,0,.28); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
-  .mobile-whatsapp svg { width: 18px; fill: #7bcf92; }
+  .mobile-whatsapp { position: fixed; z-index: 45; right: 14px; bottom: 14px; width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: rgba(7,17,25,.9); color: #fff; backdrop-filter: blur(12px); box-shadow: 0 12px 35px rgba(0,0,0,.28); }
+  .mobile-whatsapp span { display: none; }
+  .mobile-whatsapp svg { width: 21px; fill: #7bcf92; }
 }
 
 @media (prefers-reduced-motion: reduce) {

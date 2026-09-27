@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const whatsapp = 'https://wa.me/34667799023?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20los%20entrenamientos%20y%20la%20preparaci%C3%B3n%20f%C3%ADsica.';
+const whatsapp = 'https://wa.me/34667799023?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20el%20entrenamiento%20personal%20y%20comentar%20mi%20objetivo.';
 
 const dossiers = [
   { n: '01', title: 'Formación académica superior', label: 'Universidad · Dirección · Educación', groups: [
@@ -66,8 +66,8 @@ function Header() {
   return <header className={`topbar ${open ? 'menu-open' : ''}`}>
     <a className="brand" href="#inicio" onClick={() => setOpen(false)} aria-label="Inicio">rmeb<span>.</span></a>
     <nav aria-label="Navegación principal">
+      <a href="#entrenamiento" onClick={() => setOpen(false)}>Entrenamiento</a>
       <a href="#perfil" onClick={() => setOpen(false)}>Perfil</a>
-      <a href="#areas" onClick={() => setOpen(false)}>Áreas</a>
       <a href="#trayectoria" onClick={() => setOpen(false)}>Trayectoria</a>
     </nav>
     <a className="nav-contact" href={whatsapp} target="_blank" rel="noreferrer"><span>Contacto</span><Arrow /></a>
@@ -91,13 +91,13 @@ function Dossier({ item, open, onToggle }) {
 function FlipCard({ number, image, alt, eyebrow, title, text, link }) {
   const [flipped, setFlipped] = useState(false);
   return <article className={`flip-card ${flipped ? 'is-flipped' : ''}`}>
-    <button className="flip-card-inner" onClick={() => setFlipped(!flipped)} aria-pressed={flipped} aria-label={`${flipped ? 'Cerrar' : 'Abrir'} ${title}`}>
+    <button type="button" className="flip-card-inner" onClick={() => setFlipped((current) => !current)} aria-pressed={flipped} aria-label={`${flipped ? 'Cerrar' : 'Abrir'} ${title}`}>
       <span className="flip-face flip-front">
         <img src={image} alt={alt}/><span className="flip-shade"/><span className="flip-number">{number}</span>
-        <span className="flip-front-copy"><small>{eyebrow}</small><strong>{title}</strong><i>{flipped ? 'Cerrar' : 'Tocar para descubrir'} <b>↗</b></i></span>
+        <span className="flip-front-copy"><small>{eyebrow}</small><strong>{title}</strong><i><span>Tocar para descubrir</span><Arrow /></i></span>
       </span>
       <span className="flip-face flip-back">
-        <span className="flip-number">{number}</span><small>{eyebrow}</small><strong>{title}</strong><span className="flip-text">{text}</span><span className="flip-link">{link} <b>→</b></span>
+        <span className="flip-number">{number}</span><small>{eyebrow}</small><strong>{title}</strong><span className="flip-text">{text}</span><span className="flip-link"><span>{link}</span><Arrow /></span>
       </span>
     </button>
   </article>;
@@ -132,7 +132,7 @@ export function App() {
       <div className="hero-copy">
         <p className="overline hero-overline">Preparación física · Salud · Readaptación</p>
         <h1><span>Rafael</span><span>Montero</span><span className="hero-last"><em>de</em><em>Espinosa</em></span></h1>
-        <p className="hero-role">Licenciado en Educación Física<br/>Director y preparador físico</p>
+        <p className="hero-role">Licenciado en Educación Física<br/>Readaptador y preparador físico</p>
         <a className="button button-copper" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppMark/><span>Conocer los entrenamientos</span><Arrow /></a>
       </div>
       <div className="hero-rail"><span>COLEF Andalucía</span><i/><span>Alto rendimiento</span><i/><span>Ámbito sanitario</span></div>
@@ -153,6 +153,28 @@ export function App() {
         <Reveal delay={240}><p>Su enfoque combina el rigor científico de la fisiología del esfuerzo y la biomecánica con una contrastada capacidad organizativa: desde selecciones autonómicas y deportistas profesionales hasta programas de salud clínica especializada y cuerpos docentes de seguridad.</p></Reveal>
         <Reveal className="profile-facts" delay={300}><div><strong>3</strong><span>Másteres universitarios</span></div><div><strong>COLEF</strong><span>Comité de expertos</span></div><div><strong>360º</strong><span>Deporte, salud y gestión</span></div></Reveal>
       </div>
+    </section>
+
+    <section className="personal-training" id="entrenamiento">
+      <div className="training-heading">
+        <Reveal><p className="overline dark">Entrenamiento personal</p></Reveal>
+        <Reveal delay={80}><h2>Entrenar con una<br/><em>planificación adaptada.</em></h2></Reveal>
+      </div>
+      <div className="training-content">
+        <Reveal delay={100}><p className="training-lead">Para personas que quieren empezar a entrenar, retomar la actividad física o mantenerse en forma con una planificación profesional.</p></Reveal>
+        <Reveal delay={160}><p className="training-copy">Cada programa se adapta al nivel, la experiencia previa y los objetivos personales. El trabajo integra fuerza, movilidad, equilibrio y resistencia.</p></Reveal>
+        <Reveal className="training-goals" delay={220}>
+          <div><span>01</span><strong>Mejorar la fuerza y la estabilidad</strong></div>
+          <div><span>02</span><strong>Mantener o recuperar la condición física</strong></div>
+          <div><span>03</span><strong>Ganar movilidad y coordinación</strong></div>
+        </Reveal>
+        <Reveal delay={280}><a className="button button-copper training-button" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppMark/><span>Consultar entrenamiento personal</span><Arrow /></a></Reveal>
+      </div>
+      <Reveal className="training-process" delay={120}>
+        <div><span>01</span><p><strong>Valoración inicial</strong>Nivel, antecedentes y objetivos.</p></div>
+        <div><span>02</span><p><strong>Planificación</strong>Ejercicios y cargas ajustados a cada persona.</p></div>
+        <div><span>03</span><p><strong>Seguimiento</strong>Progresión y adaptación del programa.</p></div>
+      </Reveal>
     </section>
 
     <section className="practice" id="areas">
@@ -186,7 +208,7 @@ export function App() {
         <Reveal className="footer-message"><p className="overline dark">04 / Contacto directo</p><h2>La experiencia<br/>también es fuerza.</h2><p>Información sobre entrenamientos, preparación física, salud y readaptación.</p></Reveal>
         <Reveal className="footer-action" delay={120}><a className="button button-copper footer-button" href={whatsapp} target="_blank" rel="noreferrer"><WhatsAppMark/><span>Escribir por WhatsApp</span><Arrow /></a><a className="phone" href="tel:+34667799023">+34 667 799 023</a></Reveal>
       </div>
-      <div className="footer-bottom"><a className="brand footer-brand" href="#inicio">rmeb<span>.</span></a><p>Rafael Montero de Espinosa Barroso</p><p>Preparación física · Salud · Readaptación</p><a href="#inicio">Volver arriba ↑</a></div>
+      <div className="footer-bottom"><a className="brand footer-brand" href="#inicio">rmeb<span>.</span></a><p>Rafael Montero de Espinosa Barroso</p><p>Preparación física · Salud · Readaptación</p><a className="footer-up" href="#inicio"><span>Volver arriba</span><Arrow /></a></div>
     </footer>
     <a className="mobile-whatsapp" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp"><WhatsAppMark/><span>WhatsApp</span></a>
   </main>;
