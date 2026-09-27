@@ -88,7 +88,7 @@ function Dossier({ item, open, onToggle }) {
   </article>;
 }
 
-function FlipCard({ number, image, alt, eyebrow, title, text, link }) {
+function FlipCard({ number, image, alt, eyebrow, title, text }) {
   const [flipped, setFlipped] = useState(false);
   return <article className={`flip-card ${flipped ? 'is-flipped' : ''}`}>
     <button type="button" className="flip-card-inner" onClick={() => setFlipped((current) => !current)} aria-pressed={flipped} aria-label={`${flipped ? 'Cerrar' : 'Abrir'} ${title}`}>
@@ -97,7 +97,7 @@ function FlipCard({ number, image, alt, eyebrow, title, text, link }) {
         <span className="flip-front-copy"><small>{eyebrow}</small><strong>{title}</strong><i><span>Tocar para descubrir</span><Arrow /></i></span>
       </span>
       <span className="flip-face flip-back">
-        <span className="flip-number">{number}</span><small>{eyebrow}</small><strong>{title}</strong><span className="flip-text">{text}</span><span className="flip-link"><span>{link}</span><Arrow /></span>
+        <span className="flip-number">{number}</span><small>{eyebrow}</small><strong>{title}</strong><span className="flip-text">{text}</span>
       </span>
     </button>
   </article>;
@@ -185,9 +185,9 @@ export function App() {
       </div>
 
       <div className="practice-stories" aria-label="Áreas de trabajo">
-        <FlipCard number="01" image="/assets/training-atmosphere.png" alt="Material de entrenamiento en un espacio de preparación física" eyebrow="Rendimiento" title="Preparación física de élite" text="Trabajo específico para competición y práctica profesional: karate, golf, natación, voleibol, danza, seguridad y artes marciales." link="Ver experiencia" />
-        <FlipCard number="02" image="/assets/health-atmosphere.png" alt="Espacio profesional para readaptación y ejercicio terapéutico" eyebrow="Salud" title="Readaptación y prevención" text="Prescripción del ejercicio, recuperación funcional y prevención lesional en contextos hospitalarios y programas especializados." link="Ver acreditaciones" />
-        <FlipCard number="03" image="/assets/rafael-playa.jpg" alt="Rafael Montero de Espinosa junto al mar" eyebrow="Dirección" title="Gestión, eventos y docencia" text="Dirección de instalaciones, organización técnica de competiciones y formación para entidades públicas y profesionales." link="Consultar trayectoria" />
+        <FlipCard number="01" image="/assets/training-atmosphere.png" alt="Material de entrenamiento en un espacio de preparación física" eyebrow="Rendimiento" title="Preparación física de élite" text="Trabajo específico para competición y práctica profesional: karate, golf, natación, voleibol, danza, seguridad y artes marciales." />
+        <FlipCard number="02" image="/assets/health-atmosphere.png" alt="Espacio profesional para readaptación y ejercicio terapéutico" eyebrow="Salud" title="Readaptación y prevención" text="Prescripción del ejercicio, recuperación funcional y prevención lesional en contextos hospitalarios y programas especializados." />
+        <FlipCard number="03" image="/assets/rafael-playa.jpg" alt="Rafael Montero de Espinosa junto al mar" eyebrow="Dirección" title="Gestión, eventos y docencia" text="Dirección de instalaciones, organización técnica de competiciones y formación para entidades públicas y profesionales." />
       </div>
     </section>
 
